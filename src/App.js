@@ -49,6 +49,9 @@ function App() {
   const startGame = useCallback(() => {
     //clear all letters
     clearLetterStates();
+    //reset guesses
+    setGuesses(guessesQty);
+
     //pick word and pick category
     const { word, category } = pickWordAndCategory();
 
@@ -79,16 +82,10 @@ function App() {
 
     //push guessed letter or remove guess
     if (letters.includes(normalizedLetter)) {
-      setGuessedLatters(
-        (actualGuessedLetters) => [...actualGuessedLetters, normalizedLetter],
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Você acertou a letra!",
-          showConfirmButton: false,
-          timer: 1200,
-        })
-      );
+      setGuessedLatters((actualGuessedLetters) => [
+        ...actualGuessedLetters,
+        normalizedLetter,
+      ]);
     } else {
       setWrongLetters(
         (actualWrongLetters) => [...actualWrongLetters, normalizedLetter],
@@ -129,6 +126,13 @@ function App() {
     ) {
       //add score
       setScore((actualScore) => (actualScore += 100));
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Você acertou a palavra!",
+        showConfirmButton: false,
+        timer: 1200,
+      });
       //restart game with new word
       startGame();
     }
