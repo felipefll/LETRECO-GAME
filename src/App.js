@@ -3,7 +3,7 @@ import "./App.css";
 
 //REACT
 import { useCallback, useEffect, useState } from "react";
-
+import Swal from "sweetalert2";
 //data
 import { wordsList } from "./data/words";
 
@@ -79,15 +79,27 @@ function App() {
 
     //push guessed letter or remove guess
     if (letters.includes(normalizedLetter)) {
-      setGuessedLatters((actualGuessedLetters) => [
-        ...actualGuessedLetters,
-        normalizedLetter,
-      ]);
+      setGuessedLatters(
+        (actualGuessedLetters) => [...actualGuessedLetters, normalizedLetter],
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Você acertou a letra!",
+          showConfirmButton: false,
+          timer: 1200,
+        })
+      );
     } else {
-      setWrongLetters((actualWrongLetters) => [
-        ...actualWrongLetters,
-        normalizedLetter,
-      ]);
+      setWrongLetters(
+        (actualWrongLetters) => [...actualWrongLetters, normalizedLetter],
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Você errou a letra!",
+          showConfirmButton: false,
+          timer: 1200,
+        })
+      );
 
       setGuesses((actualGuesses) => actualGuesses - 1);
     }

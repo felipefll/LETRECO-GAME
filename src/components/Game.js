@@ -47,6 +47,7 @@ const Game = ({
       </div>
       <div className="letterContainer">
         <p>Tente advinhar uma letra da palavra:</p>
+
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -56,7 +57,9 @@ const Game = ({
             onChange={(e) => setLetter(e.target.value)}
             value={letter}
             ref={letterInputUserf}
+            autoFocus
           />
+
           <button>Jogar!</button>
         </form>
       </div>
