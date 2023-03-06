@@ -1,0 +1,15 @@
+.start h1 {
+  font-size: 1.5em;
+}
+
+.start img {
+  margin-top: 100px;
+  width: 600px;
+}
+
+@media screen and (max-width: 600px) {
+  .start img {
+    margin-top: 200px;
+    width: 300px;
+  }
+}
