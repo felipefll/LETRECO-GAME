@@ -87,17 +87,18 @@ function App() {
         normalizedLetter,
       ]);
     } else {
-      setWrongLetters(
-        (actualWrongLetters) => [...actualWrongLetters, normalizedLetter],
-        Swal.fire({
-          position: "center",
-          icon: "error",
-          title: "Você errou a letra!",
-          showConfirmButton: false,
-          timer: 1200,
-        })
-      );
-
+      setWrongLetters((actualWrongLetters) => [
+        ...actualWrongLetters,
+        normalizedLetter,
+      ]);
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Você errou a letra!",
+        showConfirmButton: false,
+        timer: 1200,
+        returnFocus: false,
+      });
       setGuesses((actualGuesses) => actualGuesses - 1);
     }
   };
@@ -126,6 +127,7 @@ function App() {
     ) {
       //add score
       setScore((actualScore) => (actualScore += 100));
+
       Swal.fire({
         position: "center",
         icon: "success",
