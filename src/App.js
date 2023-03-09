@@ -5,9 +5,6 @@ import "./App.css";
 import { useCallback, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-//audio
-import Audio1 from "./assets/audios/80s_vibe.mp3";
-
 //data
 import { wordsList } from "./data/words";
 
@@ -151,9 +148,6 @@ function App() {
 
     setGameStage(stages[0].name);
   };
-
-  const sound = new Audio(Audio1);
-  useEffect(async () => await sound.play(), []);
 
   return (
     <div className="App">

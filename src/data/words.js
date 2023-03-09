@@ -9,4 +9,5 @@ export const wordsList = {
   cozinha: ["fogao", "geladeira", "bebedouro", "mesa", "prato"],
   casa: ["porta", "parede", "telhado", "piso", "janela"],
   animal: ["girafa", "peixe", "gorila", "cavalo", "elefante"],
+  cor: ["azul", "amarelo", "vermelho", "verde", "branco"],
 };
